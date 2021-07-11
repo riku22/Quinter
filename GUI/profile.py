@@ -18,7 +18,7 @@ class ProfileGui(wx.Dialog):
 		self.url_label = wx.StaticText(self.panel, -1, "URL")
 		self.url = wx.TextCtrl(self.panel, -1, "")
 		self.main_box.Add(self.url, 0, wx.ALL, 10)
-		if s.url!=None:
+		if hasattr(s,"entities") and "url" in s.entities and "urls" in s.entities['url']:
 			self.url.SetValue(s.entities["url"]["urls"][0]["expanded_url"])
 		self.location_label = wx.StaticText(self.panel, -1, "Location")
 		self.location = wx.TextCtrl(self.panel, -1, "")
